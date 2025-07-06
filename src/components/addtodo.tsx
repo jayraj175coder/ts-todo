@@ -3,14 +3,20 @@ import React ,{useState} from 'react'
 const addtodo = () => {
 
     const [todo, setTodo]=useState('');
+
+    const handleSubmit =(e)=>{
+        e.preventDefault();
+    }
   return (
     <div>
       
       <h3>Todo list</h3>
       
-      <button  value={todo} onClick={setTodo((value)=>value.target)}>
-       Add todos
-      </button>
+      <form onSubmit={handleSubmit}>
+      <input type="text" value={todo} onChange={(e)=>{setTodo(e.target.value)}}/>
+
+      <button type="submit" >Add todos here</button>
+      </form>
     </div>
   )
 }
